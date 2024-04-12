@@ -14,7 +14,6 @@ jobs:
     steps:
     - uses: microsoft/setup-msbuild@v2
       with:
-        vs-version: '16'
         msbuild-architecture: x64
     - name: Checkout
       uses: actions/checkout@v1
@@ -26,7 +25,6 @@ jobs:
         cd ..
         git clone https://github.com/Microsoft/vcpkg.git
         cd vcpkg
-        git checkout --force 2020.01
         .\bootstrap-vcpkg.bat
         .\vcpkg.exe install cppzmq:x64-windows
 
