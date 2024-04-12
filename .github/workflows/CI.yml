@@ -2,9 +2,9 @@ name: CI
 # Workflow file for windows
 on:
   push:
-    branches:
-      - master
-  pull_request: {}
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   Windows:
@@ -12,19 +12,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - uses: microsoft/setup-msbuild@v2
+      with:
+        msbuild-architecture: x64
     - name: Checkout
       uses: actions/checkout@v1
       with:
           submodules: recursive
-
-    - uses: ilammy/msvc-dev-cmd@v1.4.1
 
     - name: Installing vcpkg (windows)
       run: |
         cd ..
         git clone https://github.com/Microsoft/vcpkg.git
         cd vcpkg
-        git checkout --force 2020.01
         .\bootstrap-vcpkg.bat
         .\vcpkg.exe install cppzmq:x64-windows
 
