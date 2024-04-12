@@ -8,3 +8,5 @@ int main(int argc, char *argv[]) {
 
   speaker->sayHello();  
 }
+
+// let's get this started
