@@ -15,6 +15,7 @@ jobs:
     - uses: microsoft/setup-msbuild@v2
       with:
         msbuild-architecture: x64
+        vs-version: '[16.4,16.5)'
     - name: Checkout
       uses: actions/checkout@v1
       with:
