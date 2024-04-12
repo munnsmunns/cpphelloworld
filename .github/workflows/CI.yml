@@ -12,12 +12,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - uses: ilammy/msvc-dev-cmd@v1.4.1
     - name: Checkout
       uses: actions/checkout@v1
       with:
           submodules: recursive
-
-    - uses: ilammy/msvc-dev-cmd@v1.4.1
 
     - name: Installing vcpkg (windows)
       run: |
